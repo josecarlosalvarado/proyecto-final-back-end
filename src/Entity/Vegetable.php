@@ -107,6 +107,11 @@ class Vegetable
      */
     private $filterMonth;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -324,6 +329,18 @@ class Vegetable
     public function setFilterMonth(?string $filterMonth): self
     {
         $this->filterMonth = $filterMonth;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

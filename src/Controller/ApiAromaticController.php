@@ -85,6 +85,7 @@ class ApiAromaticController extends AbstractController
         $aromatic->setNotes($data->get('notes'));
         $aromatic->setProperties($data->get('properties'));
         $aromatic->setPests($data->get('pests'));
+        $aromatic->setimage($data->get('image'));
 
         $errors = $validator->validate($aromatic);
 
@@ -154,6 +155,7 @@ class ApiAromaticController extends AbstractController
         $aromatic->setNotes($data->get('notes'));
         $aromatic->setProperties($data->get('properties'));
         $aromatic->setPests($data->get('pests'));
+        $aromatic->setimage($data->get('image'));
 
 
         $entityManagerInterface->persist($aromatic);

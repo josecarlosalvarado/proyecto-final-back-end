@@ -87,6 +87,7 @@ class ApiVegetableController extends AbstractController
         $vegetable->setAssociations($data->get('associations'));
         $vegetable->setPests($data->get('pests'));
         $vegetable->setFilterMonth($data->get('filter_month'));
+        $vegetable->setimage($data->get('image'));
 
         $errors = $validator->validate($vegetable);
 
@@ -158,6 +159,7 @@ class ApiVegetableController extends AbstractController
         $vegetable->setAssociations($data->get('associations'));
         $vegetable->setPests($data->get('pests'));
         $vegetable->setFilterMonth($data->get('filter_month'));
+        $vegetable->setimage($data->get('image'));
 
 
         $entityManagerInterface->persist($vegetable);

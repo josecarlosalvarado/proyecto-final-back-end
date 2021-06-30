@@ -92,6 +92,11 @@ class Aromatic
      */
     private $pests;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -287,6 +292,18 @@ class Aromatic
     public function setPests(?string $pests): self
     {
         $this->pests = $pests;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
