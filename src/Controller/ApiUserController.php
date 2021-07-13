@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 /**
  * @Route("/api/Users", name="api_Users_")
@@ -60,22 +61,24 @@ class ApiUserController extends AbstractController
      * )
      */
     public function add(
-        // Request $request,
-        // EntityManagerInterface $entityManagerInterface,
-        // ValidatorInterface $validator
         Request $request,
         EntityManagerInterface $entityManagerInterface,
-        ValidatorInterface $validator
+        ValidatorInterface $validator,
+        UserPasswordHasherInterface $encoder
     ): Response
 
     {
-        $data = $request->request;
+        $data = json_decode($request->getContent(), true);
 
         $user = new Users();
 
-        $user->setName($data->get('name'));
-        $user->setEmail($data->get('email'));
-        $user->setPassword($data->get('password'));
+        dump($data['name']);
+        $user->setName($data['name']);
+        $user->setEmail($data['email']);
+
+        $hash = $encoder->hashPassword($user, $data['password']);
+
+        $user->setPassword($hash);
 
         $errors = $validator->validate($user);
 

@@ -66,13 +66,20 @@ class ApiContactController extends AbstractController
     ): Response
 
     {
-        $data = $request->request;
+        // $data = $request->request;
+        $data = json_decode($request->getContent(), true);
 
         $contact = new Contact();
 
-        $contact->setName($data->get('name'));
-        $contact->setEmail($data->get('email'));
-        $contact->setInformation($data->get('information'));
+        // $contact->setName($data->get('name'));
+        $contact->setName($data['name']);
+
+        // $contact->setEmail($data->get('email'));
+        $contact->setEmail($data['email']);
+
+        // $contact->setInformation($data->get('information'));
+        $contact->setInformation($data['information']);
+
 
         $errors = $validator->validate($contact);
 

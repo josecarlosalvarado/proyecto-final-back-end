@@ -66,28 +66,28 @@ class ApiVegetableController extends AbstractController
     ): Response
 
     {
-        $data = $request->request;
+        $data = json_decode($request->getContent(), true);
 
         $vegetable = new Vegetable();
 
-        $vegetable->setName($data->get('name'));
-        $vegetable->setScientificName($data->get('scientific_name'));
-        $vegetable->setFamily($data->get('family'));
-        $vegetable->setSowingTemperateClimates($data->get('sowing_temperate_climates'));
-        $vegetable->setSowOtherClimates($data->get('sow_other_climates'));
-        $vegetable->setPlantation($data->get('plantation'));
-        $vegetable->setHarvest($data->get('harvest'));
-        $vegetable->setFlowerpot($data->get('flowerpot'));
-        $vegetable->setSubstrateFertilizer($data->get('substrate_fertilizer'));
-        $vegetable->setIrrigation($data->get('irrigation'));
-        $vegetable->setLight($data->get('light'));
-        $vegetable->setWeather($data->get('weather'));
-        $vegetable->setNotes($data->get('notes'));
-        $vegetable->setProperties($data->get('properties'));
-        $vegetable->setAssociations($data->get('associations'));
-        $vegetable->setPests($data->get('pests'));
-        $vegetable->setFilterMonth($data->get('filter_month'));
-        $vegetable->setimage($data->get('image'));
+        $vegetable->setName($data['name']);
+        $vegetable->setScientificName($data['scientific_name']);
+        $vegetable->setFamily($data['family']);
+        $vegetable->setSowingTemperateClimates($data['sowing_temperate_climates']);
+        $vegetable->setSowOtherClimates($data['sow_other_climates']);
+        $vegetable->setPlantation($data['plantation']);
+        $vegetable->setHarvest($data['harvest']);
+        $vegetable->setFlowerpot($data['flowerpot']);
+        $vegetable->setSubstrateFertilizer($data['substrate_fertilizer']);
+        $vegetable->setIrrigation($data['irrigation']);
+        $vegetable->setLight($data['light']);
+        $vegetable->setWeather($data['weather']);
+        $vegetable->setNotes($data['notes']);
+        $vegetable->setProperties($data['properties']);
+        $vegetable->setAssociations($data['associations']);
+        $vegetable->setPests($data['pests']);
+        $vegetable->setFilterMonth($data['filter_month']);
+        $vegetable->setimage($data['image']);
 
         $errors = $validator->validate($vegetable);
 
@@ -140,26 +140,26 @@ class ApiVegetableController extends AbstractController
         Request $request
     ):Response{
         
-        $data = $request->request;
+        $data = json_decode($request->getContent(), true);
 
-        $vegetable->setName($data->get('name'));
-        $vegetable->setScientificName($data->get('scientific_name'));
-        $vegetable->setFamily($data->get('family'));
-        $vegetable->setSowingTemperateClimates($data->get('sowing_temperate_climates'));
-        $vegetable->setSowOtherClimates($data->get('sow_other_climates'));
-        $vegetable->setPlantation($data->get('plantation'));
-        $vegetable->setHarvest($data->get('harvest'));
-        $vegetable->setFlowerpot($data->get('flowerpot'));
-        $vegetable->setSubstrateFertilizer($data->get('substrate_fertilizer'));
-        $vegetable->setIrrigation($data->get('irrigation'));
-        $vegetable->setLight($data->get('light'));
-        $vegetable->setWeather($data->get('weather'));
-        $vegetable->setNotes($data->get('notes'));
-        $vegetable->setProperties($data->get('properties'));
-        $vegetable->setAssociations($data->get('associations'));
-        $vegetable->setPests($data->get('pests'));
-        $vegetable->setFilterMonth($data->get('filter_month'));
-        $vegetable->setimage($data->get('image'));
+        $vegetable->setName($data['name']);
+        $vegetable->setScientificName($data['scientific_name']);
+        $vegetable->setFamily($data['family']);
+        $vegetable->setSowingTemperateClimates($data['sowing_temperate_climates']);
+        $vegetable->setSowOtherClimates($data['sow_other_climates']);
+        $vegetable->setPlantation($data['plantation']);
+        $vegetable->setHarvest($data['harvest']);
+        $vegetable->setFlowerpot($data['flowerpot']);
+        $vegetable->setSubstrateFertilizer($data['substrate_fertilizer']);
+        $vegetable->setIrrigation($data['irrigation']);
+        $vegetable->setLight($data['light']);
+        $vegetable->setWeather($data['weather']);
+        $vegetable->setNotes($data['notes']);
+        $vegetable->setProperties($data['properties']);
+        $vegetable->setAssociations($data['associations']);
+        $vegetable->setPests($data['pests']);
+        $vegetable->setFilterMonth($data['filter_month']);
+        $vegetable->setimage($data['image']);
 
 
         $entityManagerInterface->persist($vegetable);

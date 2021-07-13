@@ -50,3 +50,6 @@ security:
         - {path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY} 
         - {path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY}
         - {path: ^/api/Users, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - {path: ^/api/Aromatic, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - {path: ^/api/Vegetable, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - {path: ^/api/Contact, roles: IS_AUTHENTICATED_ANONYMOUSLY}
